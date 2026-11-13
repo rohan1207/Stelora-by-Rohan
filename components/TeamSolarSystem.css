@@ -1,0 +1,380 @@
+.tss {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(3.5rem, 8vw, 5.5rem) 1.25rem clamp(2.75rem, 6vw, 4.5rem);
+  background: #eef4fb;
+}
+
+.tss-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(55% 40% at 50% 0%, rgba(255, 255, 255, 0.85), transparent 70%),
+    linear-gradient(180deg, #d7e7f7 0%, #eaf2fa 38%, #f7f4ee 78%, #f4f2ec 100%);
+  pointer-events: none;
+}
+
+.tss-header,
+.tss-stage {
+  position: relative;
+  z-index: 1;
+}
+
+.tss-header {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.tss-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.75rem 0.45rem;
+  border-radius: 0.2rem;
+  background: var(--stelora-cream);
+  box-shadow: 0 8px 18px rgba(12, 22, 56, 0.1);
+  font-family: var(--font-hand), "Caveat", cursive;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--stelora-navy);
+  transform: rotate(-2deg);
+}
+
+.tss-sticker__star {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.tss-title {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: clamp(1.85rem, 4.2vw, 3.05rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: var(--stelora-navy);
+}
+
+.tss-sub {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  font-family: var(--font-body), "Manrope", sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.02rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--stelora-muted);
+}
+
+.tss-stage {
+  position: relative;
+  width: min(100%, 920px);
+  aspect-ratio: 1 / 1;
+  max-height: min(78vh, 820px);
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.tss-stage__glow {
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 214, 120, 0.35), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(26, 48, 123, 0.08), transparent 62%);
+  pointer-events: none;
+}
+
+.tss-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border: 1px dashed rgba(26, 48, 123, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tss-sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: clamp(92px, 16vw, 132px);
+  height: clamp(92px, 16vw, 132px);
+  padding: 0;
+  border: 3px solid #fff4e0;
+  border-radius: 50%;
+  background: #1a307b;
+  box-shadow:
+    0 0 0 8px rgba(255, 214, 120, 0.18),
+    0 0 36px rgba(255, 196, 80, 0.35),
+    0 14px 28px rgba(12, 22, 56, 0.22);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  overflow: visible;
+}
+
+.tss-sun__halo {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 214, 120, 0.45), transparent 68%);
+  animation: tss-pulse 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.tss-sun__photo,
+.tss-planet__photo,
+.tss-card__photo,
+.tss-avatar--fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tss-sun__photo {
+  position: relative;
+  z-index: 1;
+}
+
+.tss-avatar--fallback {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, #243a8a, #15245c);
+  color: #fff4e0;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.tss-sun .tss-avatar--fallback {
+  font-size: 1.45rem;
+}
+
+.tss-sun__label {
+  position: absolute;
+  left: 50%;
+  bottom: -1.55rem;
+  translate: -50% 0;
+  white-space: nowrap;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stelora-navy);
+}
+
+.tss-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  animation: tss-spin var(--tss-duration) linear infinite;
+  pointer-events: none;
+}
+
+.tss-orbit.is-paused,
+.tss-stage.is-paused .tss-orbit,
+.tss-stage.is-paused .tss-planet,
+.tss-stage.is-paused .tss-sun__halo {
+  animation-play-state: paused;
+}
+
+.tss-planet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: clamp(64px, 8.2vw, 76px);
+  height: clamp(64px, 8.2vw, 76px);
+  padding: 0;
+  border: 2.5px solid #ffffff;
+  border-radius: 50%;
+  background: #dfe6f5;
+  box-shadow: 0 8px 18px rgba(12, 22, 56, 0.18);
+  animation: tss-counter-spin var(--tss-duration) linear infinite;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    box-shadow 0.25s ease,
+    scale 0.25s ease;
+}
+
+.tss-planet:hover,
+.tss-planet.is-active,
+.tss-sun:hover,
+.tss-sun.is-active {
+  scale: 1.08;
+  box-shadow:
+    0 0 0 4px rgba(26, 48, 123, 0.12),
+    0 12px 26px rgba(12, 22, 56, 0.24);
+  z-index: 6;
+}
+
+.tss-planet:focus-visible,
+.tss-sun:focus-visible {
+  outline: 2px solid var(--stelora-navy);
+  outline-offset: 4px;
+}
+
+.tss-card {
+  position: absolute;
+  z-index: 8;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  width: min(280px, calc(100% - 1.5rem));
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(26, 48, 123, 0.12);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 18px 40px rgba(12, 22, 56, 0.16),
+    0 2px 0 rgba(255, 255, 255, 0.7) inset;
+  backdrop-filter: blur(10px);
+  animation: tss-card-in 0.22s ease;
+  pointer-events: none;
+}
+
+.tss-card__avatar {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #fff4e0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(12, 22, 56, 0.14);
+}
+
+.tss-card__body {
+  min-width: 0;
+}
+
+.tss-card__name {
+  margin: 0;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--stelora-navy);
+}
+
+.tss-card__role {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-body), "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stelora-muted);
+}
+
+.tss-card__blurb {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-body), "Manrope", sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--stelora-ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes tss-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--tss-start));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--tss-start) + 360deg));
+  }
+}
+
+@keyframes tss-counter-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(calc(var(--tss-start) * -1));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--tss-start) * -1 - 360deg));
+  }
+}
+
+@keyframes tss-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes tss-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    scale: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .tss {
+    padding-inline: 1rem;
+  }
+
+  .tss-stage {
+    width: min(100%, 100%);
+    max-height: min(78vw, 520px);
+    aspect-ratio: 1 / 1;
+  }
+
+  .tss-ring,
+  .tss-orbit {
+    transform-origin: center center;
+  }
+
+  .tss-planet {
+    width: 54px;
+    height: 54px;
+  }
+
+  .tss-sun {
+    width: clamp(72px, 20vw, 96px);
+    height: clamp(72px, 20vw, 96px);
+  }
+
+  .tss-card {
+    max-width: min(280px, calc(100vw - 2rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tss-orbit {
+    animation: none !important;
+    transform: translate(-50%, -50%) rotate(var(--tss-start));
+  }
+
+  .tss-planet {
+    animation: none !important;
+    transform: translate(-50%, -50%) rotate(calc(var(--tss-start) * -1));
+  }
+
+  .tss-sun__halo,
+  .tss-card {
+    animation: none !important;
+  }
+}

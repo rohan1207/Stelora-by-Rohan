@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 96" fill="none">
+  <defs>
+    <linearGradient id="g" x1="10" y1="8" x2="70" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0D78A"/>
+      <stop offset="0.45" stop-color="#C9A24A"/>
+      <stop offset="1" stop-color="#8B6914"/>
+    </linearGradient>
+    <linearGradient id="w" x1="20" y1="4" x2="60" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7E7B0"/>
+      <stop offset="1" stop-color="#B8923A"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-10%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#0c1638" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <g filter="url(#s)">
+    <!-- clip body -->
+    <path d="M24 34h32c2.2 0 4 1.8 4 4v40c0 4.4-3.6 8-8 8H28c-4.4 0-8-3.6-8-8V38c0-2.2 1.8-4 4-4z" fill="url(#g)" stroke="#7A5C12" stroke-width="1"/>
+    <path d="M28 42h24v4H28z" fill="#E8C96A" opacity="0.55"/>
+    <!-- wire handles -->
+    <path d="M30 34 V18 c0-8 6-14 10-14s10 6 10 14v16" stroke="url(#w)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M50 34 V18 c0-8-6-14-10-14" stroke="#F3DEA0" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55"/>
+  </g>
+</svg>

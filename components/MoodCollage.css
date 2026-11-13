@@ -1,0 +1,280 @@
+.mood-board {
+  --mb-navy: var(--stelora-navy);
+  --mb-cream: var(--stelora-cream);
+  --mb-ink: var(--stelora-ink);
+  --mb-line: var(--stelora-line);
+  position: relative;
+  width: min(320px, 46vw);
+  aspect-ratio: 4 / 5;
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .mood-board {
+    width: 350px;
+  }
+}
+
+.mood-board__leaf {
+  pointer-events: none;
+  position: absolute;
+  right: -8%;
+  top: -6%;
+  z-index: 0;
+  width: 58%;
+  height: 42%;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(26, 48, 123, 0.08), transparent 58%),
+    radial-gradient(ellipse at 40% 60%, rgba(12, 22, 56, 0.05), transparent 55%);
+  filter: blur(10px);
+  opacity: 0.75;
+}
+
+.mood-board__card {
+  position: absolute;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(12, 22, 56, 0.16);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mood-board__card:focus-visible {
+  outline: 2px solid var(--mb-navy);
+  outline-offset: 3px;
+}
+
+.mood-board__card.is-forward {
+  z-index: 30 !important;
+  box-shadow: 0 22px 44px rgba(12, 22, 56, 0.28);
+}
+
+/* Left — Instagram / reel polaroid */
+.mood-board__card--ig {
+  left: 0%;
+  top: 14%;
+  z-index: 3;
+  width: 42%;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(12, 22, 56, 0.08);
+  padding: 0.4rem 0.4rem 0.55rem;
+  transform: rotate(-6deg);
+  text-align: left;
+}
+
+.mood-board__card--ig.is-forward {
+  transform: rotate(-6deg) scale(1.12) translateY(-10px);
+}
+
+.mood-board__ig-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  aspect-ratio: 4 / 5;
+  background: #e8e4dc;
+}
+
+.mood-board__ig-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mood-board__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.mood-board__play span {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--mb-navy);
+  box-shadow: 0 6px 14px rgba(12, 22, 56, 0.18);
+}
+
+.mood-board__ig-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.4rem;
+  padding: 0 0.1rem;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--mb-ink);
+}
+
+.mood-board__ig-stats .spacer {
+  margin-left: auto;
+}
+
+.mood-board__ig-stats svg {
+  width: 0.78rem;
+  height: 0.78rem;
+}
+
+.mood-board__tape {
+  pointer-events: none;
+  position: absolute;
+  left: 18%;
+  top: -7%;
+  z-index: 4;
+  width: 42%;
+  height: 0.72rem;
+  border-radius: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(232, 214, 176, 0.75),
+    rgba(214, 190, 140, 0.55)
+  );
+  box-shadow: 0 1px 2px rgba(12, 22, 56, 0.08);
+  transform: rotate(-6deg);
+  mix-blend-mode: multiply;
+}
+
+/* Center — Brand Campaigns (navy) */
+.mood-board__card--brand {
+  left: 34%;
+  top: 4%;
+  z-index: 2;
+  width: 44%;
+  border-radius: 0.95rem;
+  border: 3px solid #fff;
+  background: var(--mb-navy);
+  transform: rotate(0.5deg);
+  text-align: left;
+}
+
+.mood-board__card--brand.is-forward {
+  transform: rotate(0.5deg) scale(1.1) translateY(-12px);
+}
+
+.mood-board__brand-copy {
+  margin: 0;
+  padding: 0.7rem 0.65rem 0.35rem;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: clamp(0.72rem, 1.6vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--mb-cream);
+}
+
+.mood-board__brand-media {
+  margin: 0 0.45rem 0.45rem;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  aspect-ratio: 3 / 4;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.mood-board__brand-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mood-board__pin {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: -0.35rem;
+  z-index: 5;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 30%, #4a63b8, var(--mb-navy) 58%, #0c1638);
+  box-shadow:
+    0 2px 4px rgba(12, 22, 56, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  transform: translateX(-50%);
+}
+
+.mood-board__pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  width: 0.18rem;
+  height: 0.55rem;
+  border-radius: 1px;
+  background: linear-gradient(#c9d0e0, #8b95ad);
+  transform: translateX(-50%);
+}
+
+/* Right — Content Creation */
+.mood-board__card--create {
+  right: 0%;
+  bottom: 6%;
+  z-index: 4;
+  width: 44%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(12, 22, 56, 0.08);
+  padding: 0.35rem;
+  transform: rotate(7deg);
+  text-align: left;
+}
+
+.mood-board__card--create.is-forward {
+  transform: rotate(7deg) scale(1.12) translateY(-10px);
+}
+
+.mood-board__create-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  aspect-ratio: 4 / 5;
+  background: #e8e4dc;
+}
+
+.mood-board__create-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mood-board__create-label {
+  pointer-events: none;
+  position: absolute;
+  left: 0.45rem;
+  top: 0.45rem;
+  max-width: 78%;
+  margin: 0;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: clamp(0.62rem, 1.4vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(12, 22, 56, 0.45);
+  text-align: left;
+}
+
+.mood-board__heart {
+  pointer-events: none;
+  position: absolute;
+  right: 4%;
+  top: 38%;
+  z-index: 6;
+  color: var(--mb-ink);
+  opacity: 0.85;
+  transform: rotate(12deg);
+}
+
+.mood-board__heart svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}

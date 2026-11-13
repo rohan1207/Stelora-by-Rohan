@@ -1,0 +1,193 @@
+.brand-trust {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f9f7f2 0%, #f4f2ec 100%);
+}
+
+.brand-trust__glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(55% 80% at 50% 50%, rgba(26, 48, 123, 0.05), transparent 70%);
+}
+
+.brand-trust__inner {
+  position: relative;
+  z-index: 1;
+  padding: 1.65rem 0 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .brand-trust__inner {
+    padding: 2rem 0 2.1rem;
+  }
+}
+
+.brand-trust__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0 auto 1.15rem;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.brand-trust__head .stelora-sticker {
+  margin-bottom: 0.65rem;
+}
+
+.brand-trust__kicker {
+  margin: 0;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--stelora-muted);
+}
+
+.brand-trust__title {
+  margin: 0;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--stelora-navy);
+}
+
+.brand-trust__viewport {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.brand-trust__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: brand-trust-ltr 38s linear infinite;
+}
+
+.brand-trust__viewport:hover .brand-trust__track {
+  animation-play-state: paused;
+}
+
+.brand-trust__set {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1.35rem;
+  padding-right: 1.35rem;
+}
+
+.brand-trust__item {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  min-width: 148px;
+  padding: 0.7rem 1.35rem;
+  border-radius: 1rem;
+  border: 1px solid var(--stelora-line);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 22px rgba(12, 22, 56, 0.06);
+}
+
+.brand-trust__logo {
+  display: block;
+  height: 58px;
+  width: auto;
+  max-width: 176px;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.brand-trust__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem 1.35rem;
+  margin: 1.15rem auto 0;
+  padding: 0 1.25rem;
+  max-width: 920px;
+}
+
+.brand-trust__meta-item {
+  margin: 0;
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stelora-muted);
+}
+
+.brand-trust__meta-item strong {
+  color: var(--stelora-navy);
+  font-weight: 700;
+}
+
+.brand-trust__meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(26, 48, 123, 0.28);
+}
+
+@keyframes brand-trust-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-trust__track {
+    animation: none;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .brand-trust__set:last-child {
+    display: none;
+  }
+
+  .brand-trust__set {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-trust__item {
+    height: 64px;
+    min-width: 104px;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .brand-trust__logo {
+    height: 40px;
+    max-width: 120px;
+  }
+
+  .brand-trust__set {
+    gap: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .brand-trust__meta-dot {
+    display: none;
+  }
+}

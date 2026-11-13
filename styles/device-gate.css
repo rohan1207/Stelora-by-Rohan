@@ -1,0 +1,238 @@
+/* —— Phone / small screens —— */
+@media (max-width: 819px) {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  img,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+
+  header nav {
+    gap: 0.75rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    height: 4.25rem !important;
+  }
+
+  header nav img {
+    height: 2.4rem !important;
+  }
+
+  /* Inner pages align with shorter phone nav */
+  main.min-h-\[100svh\] {
+    padding-top: 4.25rem !important;
+  }
+
+  .hero-desk-collage {
+    max-height: 132px;
+  }
+
+  .lanyard-wrapper {
+    transform: scale(0.78);
+    transform-origin: center 18%;
+  }
+
+  .lanyard-idle-sway {
+    transform-origin: 50% 8%;
+  }
+
+  .palm-hint-icon {
+    font-size: 1.65rem;
+  }
+
+  /* Hero declutter — keep brand, CTAs, ticket, music, lanyard */
+  section[aria-labelledby="hero-brand"] [data-hero-plant],
+  section[aria-labelledby="hero-brand"] [data-hero-terminal],
+  section[aria-labelledby="hero-brand"] [data-hero-desk],
+  section[aria-labelledby="hero-brand"] [data-hero-mood] {
+    display: none !important;
+  }
+
+  section[aria-labelledby="hero-brand"] .ticket-hero {
+    width: min(280px, 88vw) !important;
+  }
+
+  .finder-desk {
+    height: auto !important;
+    min-height: 100svh;
+  }
+
+  .finder-window {
+    min-height: min(520px, calc(100svh - 7rem));
+    border-radius: 12px;
+  }
+
+  /* Live reel / carousel section IDs (was #orbit / #reel) */
+  #creatives,
+  #carousels,
+  #photoshoot {
+    height: auto !important;
+    min-height: 100svh;
+  }
+
+  #creatives .sticky,
+  #carousels .sticky,
+  #photoshoot .sticky {
+    position: relative !important;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+  }
+
+  #photoshoot [style*="minHeight"] {
+    min-height: 360px !important;
+  }
+
+  #lift {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100svh;
+  }
+
+  .stelora-breaker__shell {
+    width: 100%;
+    max-height: none;
+    min-height: 420px;
+    border-radius: 1.1rem;
+  }
+
+  .stelora-breaker__stage {
+    min-height: 300px;
+  }
+
+  .stelora-breaker__canvas {
+    cursor: auto !important;
+    touch-action: manipulation !important;
+  }
+
+  .stelora-breaker__legend {
+    gap: 0.3rem 0.5rem;
+    padding: 0.4rem 0.65rem 0.5rem;
+  }
+
+  /* Press print — keep aspect, avoid crushing */
+  .press-print-crumple.paper-crumple {
+    height: auto !important;
+    aspect-ratio: 1180 / 660;
+    max-height: min(52svh, 420px);
+  }
+
+  /* Services passage hero — shorter on phone */
+  .services-passage-hero {
+    min-height: 72svh !important;
+  }
+
+  .services-passage-hero__stage {
+    height: 72svh !important;
+    min-height: 72svh !important;
+  }
+
+  footer {
+    padding-left: 0;
+  }
+
+  /* Shared cards / sections breathing room */
+  .page-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .finder-window {
+    min-height: min(460px, calc(100svh - 6rem));
+  }
+
+  .stelora-breaker__shell {
+    min-height: 380px;
+  }
+
+  .stelora-breaker__stage {
+    min-height: 260px;
+  }
+}
+
+/* —— Laptop / MacBook fit only (desktop ≥1512px unchanged) —— */
+@media (min-width: 820px) and (max-width: 1511px) {
+  :root {
+    --stelora-laptop-pad-x: clamp(0.75rem, 2.2vw, 1.75rem);
+  }
+
+  header nav {
+    gap: 1rem !important;
+    padding-left: var(--stelora-laptop-pad-x) !important;
+    padding-right: var(--stelora-laptop-pad-x) !important;
+  }
+
+  header nav ul {
+    gap: 1.35rem !important;
+  }
+
+  .hero-desk-collage {
+    max-height: 200px;
+  }
+
+  #work > .relative.z-10 {
+    padding-left: var(--stelora-laptop-pad-x);
+    padding-right: var(--stelora-laptop-pad-x);
+  }
+
+  .stelora-breaker > .relative.z-10 {
+    padding-left: var(--stelora-laptop-pad-x);
+    padding-right: var(--stelora-laptop-pad-x);
+  }
+
+  #creatives .sticky,
+  #carousels .sticky,
+  #orbit .sticky,
+  #reel .sticky {
+    max-height: 100svh;
+  }
+
+  .stelora-breaker__shell {
+    max-height: min(640px, calc(100svh - 170px));
+  }
+
+  .finder-window {
+    border-radius: 12px;
+  }
+
+  #creatives h2,
+  #carousels h2,
+  #reel h2,
+  #orbit h2,
+  #photoshoot h2,
+  #lift h2 {
+    font-size: clamp(1.45rem, 3.2vw, 2.35rem) !important;
+  }
+}
+
+@media (min-width: 820px) and (max-height: 900px) {
+  .hero-desk-collage {
+    max-height: 168px;
+  }
+
+  .stelora-breaker__shell {
+    max-height: min(560px, calc(100svh - 150px));
+  }
+
+  #photoshoot .sticky {
+    min-height: 100svh;
+  }
+
+  #photoshoot [style*="minHeight"] {
+    min-height: 420px !important;
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1280px) {
+  section[aria-labelledby="hero-brand"] .ticket-hero {
+    width: min(280px, 50vw) !important;
+  }
+}

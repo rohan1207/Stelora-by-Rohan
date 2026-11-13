@@ -1,0 +1,323 @@
+.finder-desk {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f4f6fb 0%, #eef1f8 45%, #e8ebf5 100%);
+}
+
+.finder-desk__glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(42% 38% at 12% 18%, rgba(120, 140, 220, 0.28), transparent 70%),
+    radial-gradient(36% 34% at 88% 22%, rgba(170, 150, 230, 0.22), transparent 68%),
+    radial-gradient(40% 36% at 70% 88%, rgba(100, 130, 210, 0.18), transparent 70%),
+    radial-gradient(28% 26% at 20% 80%, rgba(190, 180, 230, 0.16), transparent 70%);
+}
+
+.finder-desk__heading {
+  font-family: var(--font-display), "Space Grotesk", sans-serif;
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #1a1f36;
+}
+
+.finder-desk__heading em {
+  font-style: italic;
+  font-weight: 700;
+  color: #1a307b;
+}
+
+.finder-window {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 24px 60px rgba(40, 55, 120, 0.12);
+  overflow: hidden;
+}
+
+.finder-sidebar {
+  position: relative;
+  border-right: 1px solid rgba(26, 48, 123, 0.08);
+  background: linear-gradient(180deg, rgba(248, 249, 255, 0.95) 0%, rgba(236, 239, 250, 0.9) 100%);
+  overflow: hidden;
+}
+
+.finder-sidebar::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: -20%;
+  right: -10%;
+  bottom: -18%;
+  height: 48%;
+  background: radial-gradient(60% 70% at 30% 80%, rgba(90, 110, 210, 0.28), transparent 70%);
+}
+
+.finder-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: #2a3148;
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.finder-nav-item:hover {
+  background: rgba(26, 48, 123, 0.06);
+}
+
+.finder-nav-item.is-active {
+  background: linear-gradient(135deg, #1a307b 0%, #243e96 55%, #1a307b 100%);
+  color: #fff4e0;
+  box-shadow: 0 10px 22px rgba(26, 48, 123, 0.28);
+}
+
+.finder-main {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8fc 100%);
+}
+
+.finder-crumb {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1f36;
+  cursor: pointer;
+}
+
+.finder-crumb:disabled {
+  cursor: default;
+}
+
+.finder-crumb:not(:disabled):hover {
+  color: #1a307b;
+}
+
+.finder-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(26, 48, 123, 0.3) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.finder-scroll--pass {
+  overflow-y: visible;
+}
+
+.finder-scroll--active {
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+}
+
+.finder-view-toggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 10px;
+  background: rgba(26, 48, 123, 0.06);
+}
+
+.finder-view-btn {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 28px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #5c6480;
+  cursor: pointer;
+}
+
+.finder-view-btn.is-active {
+  background: #fff;
+  color: #1a307b;
+  box-shadow: 0 2px 8px rgba(12, 22, 56, 0.08);
+}
+
+.finder-folder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 220px;
+  padding: 1.25rem 1.15rem 1.1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(26, 48, 123, 0.08);
+  background: linear-gradient(165deg, var(--folder-tint) 0%, #ffffff 78%);
+  box-shadow: 0 14px 30px rgba(40, 55, 120, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.finder-folder:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(40, 55, 120, 0.14);
+}
+
+.finder-folder:focus-visible {
+  outline: 2px solid #1a307b;
+  outline-offset: 2px;
+}
+
+.finder-folder-glyph {
+  position: relative;
+  width: 92px;
+  height: 74px;
+  margin: 0.35rem auto 1.1rem;
+  filter: drop-shadow(0 14px 20px rgba(12, 22, 56, 0.22));
+}
+
+.finder-folder-glyph__tab {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 34px;
+  height: 14px;
+  border-radius: 7px 8px 0 0;
+  background: color-mix(in srgb, var(--folder-c) 86%, #fff 14%);
+}
+
+.finder-folder-glyph__body {
+  position: absolute;
+  inset: 10px 0 0;
+  border-radius: 8px 12px 10px 10px;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--folder-c) 78%, #fff 22%) 0%,
+    var(--folder-c) 48%,
+    color-mix(in srgb, var(--folder-c) 72%, #000 28%) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.finder-folder__meta {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.finder-folder__go {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1a307b;
+  box-shadow: 0 6px 14px rgba(12, 22, 56, 0.1);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.finder-card {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(26, 48, 123, 0.08);
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(40, 55, 120, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.finder-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(40, 55, 120, 0.14);
+}
+
+.finder-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #d4d7e2;
+}
+
+.finder-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.finder-card:hover .finder-card__media img {
+  transform: scale(1.04);
+}
+
+.finder-card__tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(12, 22, 56, 0.82);
+  color: #fff4e0;
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.finder-card__body {
+  padding: 14px 14px 16px;
+}
+
+.finder-more {
+  padding-top: 0.35rem;
+  padding-bottom: 0.25rem;
+}
+
+.finder-more .btn-pill-primary:hover {
+  transform: translateY(-1px);
+}
+
+.finder-folders--list .finder-folder {
+  min-height: 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+}
+
+.finder-folders--list .finder-folder-glyph {
+  width: 64px;
+  height: 52px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.finder-folders--list .finder-folder__meta {
+  margin-top: 0;
+}
+
+@media (max-width: 639px) {
+  .finder-window {
+    border-radius: 20px;
+  }
+}
